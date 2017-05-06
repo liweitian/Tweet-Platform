@@ -1,0 +1,24 @@
+User
+  account: string
+  password: string
+  name: string
+  gender: string
+
+Tweet
+  user_id: integer
+  content: text
+  time: string
+
+Like
+  user_id: integer
+  tweet_id: integer
+
+Follower
+  follower: integer
+  followed: integer
+
+Privatespace
+  user_id: integer
+  layout: string
+
+  
