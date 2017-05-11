@@ -1,0 +1,10 @@
+Milestone #1 Grade - liweitian
+
+Score: (10/10)
+
+Nice work.
+
+- Make sure to append `id` to the `Follower` columns, i.e., `follower_id` and `followed_id`, both of which should represent `id`s of users in the database.
+
+- Also, make sure to use upper case for your model names. e.g., `Privatespace` should be `PrivateSpace`.
+Everywhere else, use underscores: `private_space`
