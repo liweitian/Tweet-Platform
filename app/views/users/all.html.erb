@@ -1,4 +1,6 @@
 <% @otherUsers.each do |u| %>
+	<% obj = Follower.find_by(user_id: @thisUser.id, following: u.id)%>
+	<%if obj.nil?%>
 	 <%= form_tag "/followers" do %>
    	<p>
    	 	<%=name = u.name%>
@@ -6,5 +8,6 @@
    		<%= hidden_field_tag(:following, u.id)%>
    	 	<%= submit_tag "follow", class: 'button' %>
   	</p>
-	<% end %>
+  	<%end%>
+	<%end%>
 <% end %>
