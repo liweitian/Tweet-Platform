@@ -11,10 +11,11 @@
 
 Jobs in the future: 
 1. publishers.
-2. Leave a message to others
+2. send a message to others
 3. more freedom in designing one's private space
 4. Delete tweets.
 5. Add notices when invalid data format.(The length of password must larger than 8. Gender should be male or female)
+6. comments on others' tweet
 ...
 ...
 ...
