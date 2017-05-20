@@ -30557,3 +30557,135 @@ Completed 204 No Content in 50ms (ActiveRecord: 0.4ms)
   [1m[36mPrivatespace Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "privatespaces" WHERE "privatespaces"."user_id" = ? LIMIT ?[0m  [["user_id", 300], ["LIMIT", 1]]
   [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "privatespaces" ("user_id", "layout") VALUES (?, ?)[0m  [["user_id", 300], ["layout", "default"]]
   [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/" for ::1 at 2017-05-20 05:05:30 -0500
+Processing by PublishersController#index as HTML
+  Rendering publishers/index.html.erb within layouts/application
+  Rendered publishers/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 15ms (Views: 12.6ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started GET "/signin" for ::1 at 2017-05-20 05:05:45 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 15ms (Views: 13.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/signin" for ::1 at 2017-05-20 05:05:49 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8Widaq7QrFbqAQfrN9ri3zHeW1VIypuncOmr/1YuDxPM7hHuYBnyZDWkZpNa8xKyeCi3wrjB+RRCbCWXsyg8Lw==", "account"=>"account123", "password"=>"[FILTERED]", "commit"=>"Let Me In"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."account" = ? LIMIT ?[0m  [["account", "account123"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/signin
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/signin" for ::1 at 2017-05-20 05:05:49 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 14ms (Views: 12.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/signin" for ::1 at 2017-05-20 05:05:57 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LnAHGVxBgaAWeBuuY01KdoPd4I5seTzYTQEmwKfbe2hzMQ4o87ChEjahtJNEBRs24d70vbEc7f4ONnjemWa5tw==", "account"=>"account1", "password"=>"[FILTERED]", "commit"=>"Let Me In"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."account" = ? LIMIT ?[0m  [["account", "account1"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/293
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/users/293" for ::1 at 2017-05-20 05:05:57 -0500
+Processing by UsersController#space as HTML
+  Parameters: {"id"=>"293"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 293], ["LIMIT", 1]]
+  Rendering users/space.html.erb within layouts/application
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 293]]
+  [1m[36mFollower Load (0.1ms)[0m  [1m[34mSELECT "followers".* FROM "followers" WHERE "followers"."user_id" = ?[0m  [["user_id", 293]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 297], ["LIMIT", 1]]
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 297]]
+  Rendered users/space.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 25ms (Views: 19.1ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/signout" for ::1 at 2017-05-20 05:06:03 -0500
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-05-20 05:06:03 -0500
+Processing by PublishersController#index as HTML
+  Rendering publishers/index.html.erb within layouts/application
+  Rendered publishers/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 11ms (Views: 9.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for ::1 at 2017-05-20 05:06:03 -0500
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 17ms (Views: 15.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2017-05-20 05:06:16 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XQLU30AzWIUSyK/eVPCOYzsPfY5ZEbYjs2oCp7Izwbc1vC+bGmlEBpXFxeqWXMyWzxhPy8loGmkOuZ7qNGsXgg==", "account"=>"account12", "password"=>"[FILTERED]", "name"=>"lwt", "gender"=>"male", "commit"=>"Sign Me Up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."account" = ? LIMIT ?[0m  [["account", "account12"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+No template found for UsersController#create, rendering head :no_content
+Completed 204 No Content in 53ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/signup" for ::1 at 2017-05-20 05:06:36 -0500
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 11ms (Views: 9.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2017-05-20 05:06:45 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8vTiBpAZq3Whaciv8Pkuv5XJDVGsY0+l3pIP1z0u5IK5/zbJ2Gsf3VisX0U/L+o4QQdRY/AMZFu+Mu2xKVKRtw==", "account"=>"account12", "password"=>"[FILTERED]", "name"=>"lwt", "gender"=>"male", "commit"=>"Sign Me Up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."account" = ? LIMIT ?[0m  [["account", "account12"], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "users" ("account", "password", "name", "gender") VALUES (?, ?, ?, ?)[0m  [["account", "account12"], ["password", "password1"], ["name", "lwt"], ["gender", "male"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 9ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/" for ::1 at 2017-05-20 05:06:45 -0500
+Processing by PublishersController#index as HTML
+  Rendering publishers/index.html.erb within layouts/application
+  Rendered publishers/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 10ms (Views: 8.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signin" for ::1 at 2017-05-20 05:06:50 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 18ms (Views: 16.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/signin" for ::1 at 2017-05-20 05:06:53 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9x2J3lWnG7PBEqYVZwRnM7vlAf7jXgHOTzx21kixeAvKvOuJoqI8BMw0enE1bCBQQxywZnO9WRlBssiTcqoOjQ==", "account"=>"account12", "password"=>"[FILTERED]", "commit"=>"Let Me In"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."account" = ? LIMIT ?[0m  [["account", "account12"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/301
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/users/301" for ::1 at 2017-05-20 05:06:53 -0500
+Processing by UsersController#space as HTML
+  Parameters: {"id"=>"301"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 301], ["LIMIT", 1]]
+  Rendering users/space.html.erb within layouts/application
+  [1m[36mTweet Load (0.1ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" WHERE "tweets"."user_id" = ?[0m  [["user_id", 301]]
+  [1m[36mFollower Load (0.1ms)[0m  [1m[34mSELECT "followers".* FROM "followers" WHERE "followers"."user_id" = ?[0m  [["user_id", 301]]
+  Rendered users/space.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 17ms (Views: 13.7ms | ActiveRecord: 0.4ms)
+
+
