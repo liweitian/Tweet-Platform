@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find_by(id: params["id"])
     if @user.id != session["user_id"]
-      redirect_to "/", "please signin"
+      redirect_to "/", notice: "please signin"
     end
   end
 
@@ -27,9 +27,7 @@ class UsersController < ApplicationController
     @user.account = params["account"]
     @user.gender = params["gender"]
     if @user.save
-      redirect_to "/user/:user_id", notice: "Welcome #{user.name}, this is your private space"
-    else
-      render 'signup'
+      redirect_to "/", notice: "please signin"
     end
   end
 
