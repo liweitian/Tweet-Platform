@@ -43,6 +43,16 @@ Follower.delete_all
 	Follower.create user_id: id1, following: id2
 end
 
+Publisher.delete_all
+Publisher.create name: "Times"
+
+news=["news1","news2","news3","news4","news5","news6","news7","news8","news9"]
+
+News.delete_all
+news.each do |news|
+	News.create publisher_id: Publisher.sample.id, content: news
+end
+
 Privatespace.delete_all
 
 User.all.each do |u|

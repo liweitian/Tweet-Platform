@@ -25,10 +25,20 @@ ActiveRecord::Schema.define(version: 0) do
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
+  create_table "news", force: :cascade do |t|
+    t.string "publisher_id"
+    t.text   "content"
+    t.index ["publisher_id"], name: "index_news_on_publisher_id"
+  end
+
   create_table "privatespaces", force: :cascade do |t|
     t.integer "user_id"
     t.string  "layout"
     t.index ["user_id"], name: "index_privatespaces_on_user_id"
+  end
+
+  create_table "publishers", force: :cascade do |t|
+    t.string "name"
   end
 
   create_table "tweets", force: :cascade do |t|

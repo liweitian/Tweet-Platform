@@ -21,4 +21,9 @@ Privatespace
   user_id: integer
   layout: string
 
-  
+Publisher
+  name: string
+
+News
+  publisher_id: string
+  content: text

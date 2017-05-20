@@ -1,10 +1,8 @@
 <h>Recent News</h>
-<p>This part will include recent news from Times, BBC and so on</p>
-<p>Details will be read from publishers</p>
-<p>This part will include recent news from Times, BBC and so on</p>
-<p>Details will be read from publishers</p>
-<p>This part will include recent news from Times, BBC and so on</p>
-<p>Details will be read from publishers</p>
-<p>This part will include recent news from Times, BBC and so on</p>
-<p>Details will be read from publishers</p>
-<p>To be completed</p>
+<%@publishers.each do |p|%>
+ 	<p>From <%=p.name %>:</p>
+ 	<% news = News.where(publisher_id: p.id)%>
+	<%news.each do |n|%>
+		<p><%=n.content%></p>
+	<%end%>
+<%end%>
