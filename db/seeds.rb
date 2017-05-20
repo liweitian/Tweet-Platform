@@ -22,7 +22,9 @@ Tweet.delete_all
 tweet=["text1","text2","text3","text4","text5","text6","text7","text8","text9"]
 
 tweet.each do |text|
-	Tweet.create content: text, time: "default", user: User.sample
+	10.times do |n|
+		Tweet.create content: text, time: Time.new.inspect, user: User.sample
+	end
 end
 
 Like.delete_all
@@ -32,13 +34,13 @@ Like.delete_all
 end
 
 Follower.delete_all
-100.times do |n|
+20.times do |n|
 	id1 = User.sample.id
 	id2 = User.sample.id
 	if id1 == id2
 		id2 = id2 + 1
 	end
-	Follower.create follower: id1, followed: id2
+	Follower.create user_id: id1, following: id2
 end
 
 Privatespace.delete_all

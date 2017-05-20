@@ -6,9 +6,21 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+    <link rel="stylesheets" href="application.css">	
+  	</head>
 
   <body>
+
+<!-- 目录 -->
+<ul class="navbar">
+  <li><a href="/">Home</a>
+  <li><a href="/signin">SignIn</a>
+  <li><a href="/signup">SignUp</a>
+  <li><a href="/signout">SignOut</a>
+</ul>
+<% if notice.present? %>
+      <p class="notice"> <%= notice %> </p>
+<% end %>
     <%= yield %>
   </body>
 </html>

@@ -1,0 +1,26 @@
+<p><%= @user.name%>'s space</p>
+<%= link_to "My Profile", "/users/show/#{@user.id}", method: 'get' %>
+<%= link_to "Follow Others", "/users/all/#{@user.id}", method: 'get' %>
+<ol>
+  <% @user.tweets.each do |tweet| %>
+    <li>Content: <%= tweet.content %> Time:  <%= tweet.time %></li>
+  <% end %>
+</ol>
+
+ <%= form_tag "/tweets" do %>
+   <p>
+    <%= hidden_field_tag(:user_id, @user.id) %>
+   	<textarea name="message" id="message" rows="6" placeholder="Tweet"></textarea>
+    <%= submit_tag "publish", class: 'button' %>
+  </p>
+<% end %>
+
+<ol>
+  <% @user.followers.each do |f| %>
+  	<% tweets = Tweet.where(user_id: f.following)%>
+  	<% name = User.find_by(id: f.following).name%>
+    <% tweets.each do |tweet|%>
+    <li>Followed'name: <%=name %> Content: <%= tweet.content %> Time:  <%= tweet.time %></li>
+   <% end %>
+  <% end %>
+</ol>

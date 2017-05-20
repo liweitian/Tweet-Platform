@@ -14,8 +14,8 @@ Like
   tweet_id: integer
 
 Follower
-  follower: integer
-  followed: integer
+  user_id: integer
+  following: integer
 
 Privatespace
   user_id: integer

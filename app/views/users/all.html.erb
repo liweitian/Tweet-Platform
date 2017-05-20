@@ -1,0 +1,10 @@
+<% @otherUsers.each do |u| %>
+	 <%= form_tag "/followers" do %>
+   	<p>
+   	 	<%=name = u.name%>
+   	 	<%= hidden_field_tag(:user_id, @thisUser.id) %>
+   		<%= hidden_field_tag(:following, u.id)%>
+   	 	<%= submit_tag "follow", class: 'button' %>
+  	</p>
+	<% end %>
+<% end %>

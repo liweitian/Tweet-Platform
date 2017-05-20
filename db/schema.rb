@@ -13,8 +13,9 @@
 ActiveRecord::Schema.define(version: 0) do
 
   create_table "followers", force: :cascade do |t|
-    t.integer "follower"
-    t.integer "followed"
+    t.integer "user_id"
+    t.integer "following"
+    t.index ["user_id"], name: "index_followers_on_user_id"
   end
 
   create_table "likes", force: :cascade do |t|
