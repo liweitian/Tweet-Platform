@@ -8,3 +8,17 @@ Nice work.
 
 - Also, make sure to use upper case for your model names. e.g., `Privatespace` should be `PrivateSpace`.
 Everywhere else, use underscores: `private_space`
+
+-------
+
+Milestone #2 Grade
+
+Score: (10/10)
+
+Good job.
+
+- To follow Rails conventions, the method `all` should be named `index`.
+
+- Make sure to take note of my comment about case above.
+
+- Variables in Ruby use underscore instead of camel case, e.g., `@this_user` instead of `@thisUser`
