@@ -1,0 +1,62 @@
+
+ <div class = narbar>
+      <ul>
+        <a href="/signin">SignIn</a>
+        <a href="/signup">SignUp</a>
+        <a href="/signout">SignOut</a>
+      </ul>
+</div>
+
+<header>
+ <nav id="nav">
+   <ul>
+    <li><a href="/">Home</a></li>
+    <li><%= link_to "Following", "/followers/#{@user.id}", method: 'get' %></li>
+    <li><%= link_to "My Tweets", "/tweets/#{@user.id}", method: 'get' %></li>
+    <li><%= link_to "My Profile", "/users/profile/#{@user.id}", method: 'get' %></li>
+    <li><%= link_to "My Space", "/users/#{@user.id}", method: 'get' %></li>
+   </ul>
+ </nav>
+ </header>
+
+   
+
+<div class="mainContent">
+    <aside>
+      <div class="avatar">
+        <a href="/signin">
+        <%= image_tag "#{@user.headPhoto}", class: 'poster img-responsive' %>
+        </a>
+      </div>
+      <section class="topspaceinfo">
+        <h1>Self-Introduction</h1>
+        <p><%= @user.introduction%></p>
+      </section>
+      <div class="userinfo"> 
+        <%count = Follower.where(following:@user.id).count%>
+        <p class="q-fans"> Followers：<%=count%></p> 
+      </div>
+      
+    </aside>
+    <div class="blogitem">
+      
+      <%= form_tag "/tweets" do %>
+      <% end %>
+
+         <% @other_users.each do |u| %>
+         <% obj = Follower.find_by(user_id: @user.id, following: u.id)%>
+            <%if obj.nil?%>
+              <%= form_tag "/followers" do %>
+              <p>
+              <%=name = u.name%>
+              <%= hidden_field_tag(:user_id, @user.id) %>
+              <%= hidden_field_tag(:following, u.id)%>
+              <%= submit_tag "follow", class: 'button' %>
+              </p>
+              <%end%>
+            <%else%>
+                 
+            <%end%>
+          <% end %>
+ </div>
+

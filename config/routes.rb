@@ -8,12 +8,24 @@ Rails.application.routes.draw do
 
   post '/users' => 'users#create'
   get '/users/:id' => 'users#space'
-  get '/users/show/:id' => 'users#show'
+  get '/users/profile/:id' => 'users#profile'
   get '/users/edit/:id' => 'users#edit'
-  get '/users/all/:id' => 'users#all'
+  get '/users/index/:id' => 'users#index'
   patch '/users/:id' => 'users#update'
   
   post '/tweets' => 'tweets#create'
+  get  '/tweets/:id/:page' =>'tweets#index'
+  delete 'tweets/:id' => 'tweets#destroy'
+  
+  get  '/followers/:id' => 'followers#index' #following others
   post '/followers' => 'followers#create'
+  post '/comments' => 'comments#create'
+  
+  get  '/admin/signin' => 'sessions#adminNew'
+  post '/admin/signin' =>'sessions#adminCreate'
+  get  '/admin/manage/:page' => 'admins#manage'
+  post '/admin/search' => 'admins#search'
+  post '/admin/delete' =>  'admins#delete'
 
+  get  '/admin/signout' => 'sessions#adminDestroy' 
 end

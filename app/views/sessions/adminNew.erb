@@ -1,0 +1,25 @@
+<style>.center{margin:auto;width:50%;padding:10px;text-align:center;border:2px dashed #f69c55;}</style>
+<div class= center>
+<h1>Sign In</h1>
+<%= form_tag "/admin/signin" do %>
+
+    <p style="font-size:200%;">
+      <%= label_tag "account" %>
+      <%= text_field_tag "account", "", autofocus: true %>
+    </p>
+
+    <p style="font-size:200%;>
+      <%= label_tag "password" %>
+      <%= password_field_tag "password" %>
+    </p>
+
+    <p>
+        <%= submit_tag "Let Me In", class: 'button' %>
+
+        or
+
+        <%= link_to "Cancel", "/" %>
+    </p>
+
+<% end %>
+</div>

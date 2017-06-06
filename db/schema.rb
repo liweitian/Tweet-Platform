@@ -12,10 +12,25 @@
 
 ActiveRecord::Schema.define(version: 0) do
 
+  create_table "admins", force: :cascade do |t|
+    t.string "account"
+    t.string "password"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.       "from"
+    t.       "to"
+    t.string "content"
+  end
+
   create_table "followers", force: :cascade do |t|
     t.integer "user_id"
     t.integer "following"
     t.index ["user_id"], name: "index_followers_on_user_id"
+  end
+
+  create_table "headphotos", force: :cascade do |t|
+    t.string "filename"
   end
 
   create_table "likes", force: :cascade do |t|
@@ -53,6 +68,8 @@ ActiveRecord::Schema.define(version: 0) do
     t.string "password"
     t.string "name"
     t.string "gender"
+    t.string "introduction"
+    t.string "headPhoto"
   end
 
 end

@@ -1,0 +1,86 @@
+
+ <div class = narbar>
+      <ul>
+        <a href="/admin/signout">SignOut</a>
+      </ul>
+</div>
+
+<header>
+ <nav id="nav">
+   <h1>Back end platform</h1>
+ </nav>
+ </header>
+
+   
+
+<div class="mainContent">
+    <div class="blogitem">
+         <table border="3" width="400">
+          <tr>
+              <th>Account</th>
+              <th>UserId</th>
+              <th>Name</th>
+              <th>Gender</th>
+          </tr>
+          
+              <% @users.each do |u| %>
+              <tr>
+                  <td> <%=u.account%></td>
+                  <td><%=u.id%></td>
+                  <td> <%=u.name%></td>
+                  <td> <%=u.gender%></td>
+              </tr>  
+              <%end%>
+          
+          </table>
+    </div>
+
+     <div class="blogitem">
+         <table border="3" width="500">
+            <tr>
+              <th>Tweet</th>
+              <th>From</th>
+              <th>Content</th>
+            </tr>
+          
+            <% @tweets.each do |t| %>
+            <tr>
+                  <td> <%=t.id%></td>
+                  <td> <%=t.user_id%></td>
+                  <td> <%=t.content%></td>
+            </tr>  
+            <%end%>
+          </table>
+          <p>Please check each tweet's content</p>
+          <div class="pages">
+          <%for i in 1..@page_number%>
+          <%= link_to "#{i}", "/admin/manage/#{i}", method: 'get' %>
+          <%end%>
+    </div>
+
+    <%= form_tag "/admin/search" do %>
+    <p style="font-size:200%;>
+      <%= label_tag "tweet's content" %>
+      <%= text_field_tag "account", "", autofocus: true %>
+    </p>
+
+    <p>
+        <%= submit_tag "Search", class: 'button' %>
+    </p>
+    <%end%>
+
+    <%= form_tag "/admin/delete" do %>
+    <p style="font-size:200%;>
+      <%= label_tag "tweet id" %>
+      <%= text_field_tag "id", "", autofocus: true %>
+    </p>
+
+    <p>
+        <%= submit_tag "Delete", class: 'button' %>
+    </p>
+    <%end%>
+
+
+
+
+ </div>

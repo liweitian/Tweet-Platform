@@ -11,15 +11,9 @@
 
   <body>
 
-<ul class="navbar">
-  <li><a href="/">Home</a>
-  <li><a href="/signin">SignIn</a>
-  <li><a href="/signup">SignUp</a>
-  <li><a href="/signout">SignOut</a>
-</ul>
 <% if notice.present? %>
-      <p class="notice"> <%= notice %> </p>
+      <p> <%= notice %> </p>
 <% end %>
-    <%= yield %>
+    <%=yield%>
   </body>
 </html>

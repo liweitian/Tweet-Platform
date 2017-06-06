@@ -3,7 +3,9 @@ User
   password: string
   name: string
   gender: string
-
+  introduction: string
+  headPhoto: string
+  
 Tweet
   user_id: integer
   content: text
@@ -27,3 +29,16 @@ Publisher
 News
   publisher_id: string
   content: text
+
+Comment
+  from: user_id
+  to: tweet_id
+  content: string
+
+Headphoto
+  filename: string
+
+Admin
+  account: string
+  password: string
+  

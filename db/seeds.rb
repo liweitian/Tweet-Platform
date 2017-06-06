@@ -15,7 +15,7 @@ users= [["account1","password1","name1","male"],
    	   ["account7","password7","name7","female"],
    	   ["account8","password8","name8","male"]]
 users.each do |entry|
-	User.create account: entry[0], password: entry[1],name: entry[2],gender: entry[3]
+	User.create account: entry[0], password: entry[1],name: entry[2],gender: entry[3], headPhoto: "head1"
 end
 
 Tweet.delete_all
@@ -23,7 +23,7 @@ tweet=["text1","text2","text3","text4","text5","text6","text7","text8","text9"]
 
 tweet.each do |text|
 	10.times do |n|
-		Tweet.create content: text, time: Time.new.inspect, user: User.sample
+		Tweet.create content: text, time: Time.new.strftime("%m-%d"), user: User.sample
 	end
 end
 
@@ -59,4 +59,9 @@ User.all.each do |u|
 	Privatespace.create user: u, layout: "default"
 end
 
+Headphoto.delete_all
+Headphoto.create filename: "head1"
+Headphoto.create filename: "head2"
+Headphoto.create filename: "head3"
 
+Admin.create account: "admin", password: "admin"

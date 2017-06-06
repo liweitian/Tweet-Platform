@@ -11,13 +11,21 @@ class UsersController < ApplicationController
     end
   end
 
+  def profile
+    @user = User.find_by(id: params["id"])
+    if @user.id != session["user_id"]
+      redirect_to "/signin", notice: "please signin"
+    end
+  end
+
+
   def edit
       @user = User.find_by(id: params["id"])
   end
 
-  def all
-      @thisUser = User.find_by(id: params["id"])
-      @otherUsers = User.where.not(id:  params["id"])
+  def index
+      @user = User.find_by(id: params["id"])
+      @other_users = User.where.not(id:  params["id"])
   end
 
   def create
@@ -34,12 +42,19 @@ class UsersController < ApplicationController
   def update
     user = User.find_by(id: params["id"])
     user.password = params["password"]
+    user.account = params["account"]
+    user.name = params["name"]
+    user.introduction = params["introduction"]
+    user.headPhoto = params["headphoto"]
     user.save
     redirect_to "/users/#{user.id}"
   end
 
 
   def space
-      @user = User.find_by(id: params["id"])
+       @user = User.find_by(id: params["id"])
+       if @user.id != session["user_id"]
+            redirect_to "/signin"
+       end
   end
 end

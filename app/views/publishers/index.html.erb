@@ -1,8 +1,84 @@
-<h>Recent News</h>
-<%@publishers.each do |p|%>
- 	<p>From <%=p.name %>:</p>
- 	<% news = News.where(publisher_id: p.id)%>
-	<%news.each do |n|%>
-		<p><%=n.content%></p>
-	<%end%>
-<%end%>
+<header>
+ <nav id="nav">
+   <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/" >About us</a></li>
+    <li><a href="/" >Help</a></li>
+    <li><a href="/" >Contact us</a></li>
+    <li><a href="/signin">My Space</a></li>
+   </ul>
+ </nav>
+ </header>
+
+<div class = narbar>
+  <ul>
+    <a href="/signin">SignIn</a>
+    <a href="/signup">SignUp</a>
+    <a href="/signout">SignOut</a>
+  </ul>
+</div>
+
+
+
+<div class="mainContent">
+    <aside>
+      <div class="avatar">
+         <a href="/signin">
+          <%= image_tag "background1" %>
+         </a>
+      </div>
+      <section class="topspaceinfo">
+        <h1>Recent News</h1>
+        <p></p>
+      </section>
+      <section class="newpic">
+         <h2>From Google News</h2>
+         <ol>
+         	  <%@publishers.each do |p|%>
+ 			        <% news = News.where(publisher_id: p.id)%>
+			         <%news.each do |n|%>
+			         <li><p><%=n.content%></p></li>
+			         <%end%>
+			      <%end%>
+         </ol>
+      </section>
+    </aside>
+
+
+
+    <div class="blogitem">
+      <article>
+        <h2 class="title"><a href="/">London Attack</a></h2>
+        <ul class="text">
+
+        <p>Seven people, including one Canadian, were killed by attackers who drove a van at high speed into pedestrians on London Bridge and then stabbed revellers in the nearby Borough Market area on Saturday night.</p>
+
+        <p>It was Britain's third militant attack in as many months and took place five days before the upcoming national election on Thursday, June 8, which British Prime Minister Theresa May said would go ahead as planned.</p>
+
+        <p>May said the perpetrators were Islamist militants and called for a tougher counterterrorism strategy. All three attackers were shot dead by police within minutes of the first emergency call being made.</p>
+
+        <p>Here's what is known about the attack so far:</p>
+
+        <p>How did it unfold?</p>
+
+        <p>The attack started at 9:58 p.m. local time, Mark Rowley, Britain's top counterterrorism police officer, said.</p>
+
+        <p>Three attackers drove a white Renault rental van at high speed, from north to south, into pedestrians walking on London Bridge, police said.</p>
+
+        <p>A witness said at least six people were hit on the bridge.</p>
+
+        <p>"It looked like he was aiming for groups of people. I froze because I didn't know what to do," Mark Roberts, a 53-year-old management consultant, told Reuters. "It was horrendous."</p>
+
+        <p>Police said they responded to the incident on London Bridge at 10:08 p.m</p>
+        
+        <p>The three men then abandoned the vehicle, ran down a set of stairs and began attacking people with knives in the nearby Borough Market area on the south side of the Thames River, police said.</p>
+
+        <p>The neighbourhood is best known for its 1,000-year-old food market but is also home to many popular pubs and restaurants. Witnesses said the attackers stabbed people in the street, as well as those in pubs and restaurants.</p>
+
+        <p>'Twisted and cowardly terrorists' condemned after London attackers kill 7 'We won't let hate win': Ariana Grande returns to the stage for Manchester benefit show "Armed response officers then responded very quickly and bravely and confronted the three male suspects, who were shot and killed on Borough Market," Rowley said. "The suspects were wearing what looked like explosive vests but these were later established to be hoaxes."</p>
+
+        <p>Rowley said that eight officers fired about 50 bullets at the men — an "unprecedented" amount for British police. A member of the public received a non-critical gunshot wound as a result, he added.</p>
+ </div>
+ </div>
+
+

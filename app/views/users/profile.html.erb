@@ -1,0 +1,100 @@
+
+<style>
+li {
+    list-style: none;
+    display: inline-block;
+    width: 16.7%;
+    
+    text-align: center;
+    
+    overflow: hidden;
+    
+    vertical-align: bottom;
+   
+}
+
+.content {
+    width:80%;
+    padding: 10px 0;
+    overflow: hidden;
+}
+
+
+.img-wrap {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.img-box {
+    height: 120px;
+    overflow: hidden;
+}
+.img-box img {
+    position: relative;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+</style>
+
+
+
+
+
+
+<div class = narbar>
+  <ul>
+    <a href="/signin">SignIn</a>
+    <a href="/signup">SignUp</a>
+    <a href="/signout">SignOut</a>
+  </ul>
+</div>
+
+<style>.center{margin:auto;width:50%;padding:10px;text-align:center;border:2px dashed #f69c55;}</style>
+
+
+<div class= center>
+<h1>My Profile</h1>
+<%= form_tag "/users/#{@user.id}", method: 'patch' do %>
+
+    <p style="font-size:200%;">
+      <%= label_tag "account" %>
+      <%= text_field_tag "account", "#{@user.account}", autofocus: true %>
+    </p>
+
+    <p style="font-size:200%;">
+      <%= label_tag "password" %>
+      <%= password_field_tag "password","#{@user.password}" %>
+    </p>
+
+    <p style="font-size:200%;">
+      <%= label_tag "name" %>
+      <%= text_field_tag "name", "#{@user.name}"%>
+    </p>
+    <p style="font-size:200%;">
+       Introduction: <%= text_area_tag "introduction", "#{@user.introduction}"%>
+    </p>
+
+    <%Headphoto.all.each do |h|%>
+          <li>
+              <div class="img-wrap">
+                <div class="img-box">
+                   <%= image_tag h.filename%>
+                </div>
+              </div>
+              <%= radio_button_tag(:headphoto, h.filename) %>
+          </li>
+
+    <%end%>
+    
+
+    <p>
+        <%= submit_tag "Save Change", class: 'button' %>
+
+        or
+
+        <%= link_to "Cancel", "/users/#{@user.id}" %>
+    </p>
+
+<% end %>
+</div>

@@ -8,4 +8,10 @@ class FollowersController < ApplicationController
     	  redirect_to "/users/#{f.user_id}"
     	end
 	end
+
+	def index
+		@user = User.find_by(id: params["id"])
+        @other_users = User.where.not(id:  params["id"])
+	end
+
 end

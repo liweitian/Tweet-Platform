@@ -1,0 +1,2 @@
+class Headphoto < ApplicationRecord
+end

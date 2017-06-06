@@ -1,0 +1,83 @@
+<div class = narbar>
+      <ul>
+        <a href="/signin">SignIn</a>
+        <a href="/signup">SignUp</a>
+        <a href="/signout">SignOut</a>
+      </ul>
+</div>
+
+<header>
+ <nav id="nav">
+   <ul>
+    <li><a href="/">Home</a></li>
+    <li><%= link_to "Following", "/followers/#{@user.id}", method: 'get' %></li>
+    <li><%= link_to "My Tweets", "/tweets/#{@user.id}", method: 'get' %></li>
+    <li><%= link_to "My Profile", "/users/profile/#{@user.id}", method: 'get' %></li>
+    <li><%= link_to "My Space", "/users/#{@user.id}", method: 'get' %></li>
+   </ul>
+ </nav>
+ </header>
+
+   
+
+<div class="mainContent">
+    <aside>
+      <div class="avatar">
+        <a href="/signin">
+        <%= image_tag "#{@user.headPhoto}", class: 'poster img-responsive' %>
+        </a>
+      </div>
+      <section class="topspaceinfo">
+        <h1>Self-Introduction</h1>
+        <p><%= @user.introduction%></p>
+      </section>
+      <div class="userinfo"> 
+        <%count = Follower.where(following:@user.id).count%>
+        <p class="q-fans"> Followers：<%=count%></p> 
+      </div>
+      
+    </aside>
+    <div class="blogitem">
+      
+      <%= form_tag "/tweets" do %>
+      <p>
+        <%= hidden_field_tag(:user_id, @user.id) %>
+        <textarea name="message" id="message" rows="6" cols="110" placeholder="Tweet"></textarea>
+      <%= submit_tag "publish", class: 'button' %>
+      </p>
+      <% end %>
+      <%@tweets.each do |t|%>
+      <article>
+        <h2 class="title"><%=@user.name%></h2>
+        
+        <ul class="text">
+            <p>
+              <%=t.content%>
+            </p>
+              
+              <%comments = Comment.where(to: t.id)%>
+              <%comments.each do |c|%>
+                <ul style="text-indent:25px"><%=c.content%>---<%=User.find_by(id:c.from).name%></ul>
+              <%end%>
+        </ul>
+
+        <div class="textfoot">
+          <p>
+          <%= form_tag "/comments" do %>
+            <%= hidden_field_tag(:from, @user.id) %>
+            <%= hidden_field_tag(:to, t.id) %>
+            <textarea name="content" id="content" rows="2" cols="60" placeholder="Add a comment"></textarea>
+            <%= submit_tag "comment", class: 'button' %> <%=t.time %>
+          <% end %>
+          <ul><%= link_to "delete", "/tweets/#{t.id}", method: 'delete' %></ul>
+          </p>
+        </div>
+      </article>
+      <% end %> 
+        <div class="pages">
+        <%for i in 1..@page_number%>
+        <%= link_to "#{i}", "/tweets/#{@user.id}/#{i}", method: 'get' %>
+        <%end%>
+        </div>
+    </div>
+ </div>
