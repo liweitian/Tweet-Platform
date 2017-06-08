@@ -53,7 +53,7 @@
          <% tweets = Tweet.where(user_id: f.following)%>
          <%allTweets = tweets + allTweets%>
          <% end %>
-       <% allTweets.sort_by{|t| t.time}.each do |tweet| %>
+       <% allTweets.sort_by{|t| t.id}.each do |tweet| %>
 
       <article>
         <h2 class="title"><%=User.find_by(id: tweet.user_id).name%></h2>

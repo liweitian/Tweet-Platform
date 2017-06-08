@@ -12,7 +12,7 @@
    <ul>
     <li><a href="/">Home</a></li>
     <li><%= link_to "Following", "/followers/#{@user.id}", method: 'get' %></li>
-    <li><%= link_to "My Tweets", "/tweets/#{@user.id}", method: 'get' %></li>
+    <li><%= link_to "My Tweets", "/tweets/#{@user.id}/1", method: 'get' %></li>
     <li><%= link_to "My Profile", "/users/profile/#{@user.id}", method: 'get' %></li>
     <li><%= link_to "My Space", "/users/#{@user.id}", method: 'get' %></li>
    </ul>

@@ -15,12 +15,14 @@ class AdminsController < ApplicationController
          tweets = Tweet.all
          
          @result = Array.new
-
+         puts "key"
+         puts params["key"]
+         puts "key"
          tweets.each do |t|
             data = t.content.split
               data.each do |d|
                   if d == params["key"]
-                     result << d
+                     @result << t
                      break
                   end
               end
