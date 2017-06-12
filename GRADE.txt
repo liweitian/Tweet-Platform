@@ -1,3 +1,20 @@
+Final Grade
+
+Score: (27/30)
+
+Notes: 
+
+1. I was unable to sign up for a new account with the account name `rachel` and password `rachel`. However, no validation
+errors appeared on the form, so as a user, I was unable to determine what was causing the error.
+
+2. About Us/Help/Contact Us links at the top of the root page did not appear to go anywhere. It's totally clear what 
+the purpose of the root page is -- it seems unrelated to the rest of your app.
+
+3. The chart does not appear to be working -- regardless of my search query, the chart showed `100%`. My search 
+also did not appear on the page at all.
+
+-----
+
 Milestone #1 Grade - liweitian
 
 Score: (10/10)
